@@ -86,6 +86,6 @@ public final class SignBlockState extends PokkitBlockState implements Sign {
 
 	@Override
 	public void setEditable(boolean editable) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 }

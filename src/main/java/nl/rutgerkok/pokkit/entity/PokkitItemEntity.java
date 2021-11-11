@@ -60,12 +60,12 @@ public class PokkitItemEntity extends PokkitFakeEntity implements Item {
 
 	@Override
 	public void setItemStack(ItemStack stack) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setPickupDelay(int delay) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

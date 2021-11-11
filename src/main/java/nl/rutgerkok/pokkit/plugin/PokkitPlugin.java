@@ -113,17 +113,17 @@ public class PokkitPlugin implements cn.nukkit.plugin.Plugin {
 
 		@Override
 		public void onDisable() {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override
 		public void onEnable() {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override
 		public void onLoad() {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override
@@ -134,22 +134,22 @@ public class PokkitPlugin implements cn.nukkit.plugin.Plugin {
 
 		@Override
 		public void reloadConfig() {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override
 		public void saveConfig() {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override
 		public void saveDefaultConfig() {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override
 		public void saveResource(String resourcePath, boolean replace) {
-			throw Pokkit.unsupported();
+			Pokkit.notImplemented();
 		}
 
 		@Override

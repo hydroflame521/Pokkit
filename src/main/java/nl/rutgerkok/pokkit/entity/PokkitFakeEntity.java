@@ -309,32 +309,29 @@ abstract class PokkitFakeEntity implements Entity {
 
 	@Override
 	public void playEffect(EntityEffect type) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void recalculatePermissions() {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void remove() {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void removeAttachment(PermissionAttachment attachment) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void removeMetadata(String metadataKey, Plugin owningPlugin) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -351,68 +348,62 @@ abstract class PokkitFakeEntity implements Entity {
 
 	@Override
 	public void sendMessage(String message) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void sendMessage(String[] messages) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setCustomName(String name) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setCustomNameVisible(boolean flag) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void setFallDistance(float distance) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void setFireTicks(int ticks) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void setGlowing(boolean flag) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void setGravity(boolean gravity) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 
 	}
 
 	@Override
 	public void setInvulnerable(boolean flag) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setLastDamageCause(EntityDamageEvent event) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setMetadata(String metadataKey, MetadataValue newMetadataValue) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -428,31 +419,27 @@ abstract class PokkitFakeEntity implements Entity {
 
 	@Override
 	public void setPersistent(boolean persistent) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setPortalCooldown(int cooldown) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setSilent(boolean flag) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setTicksLived(int value) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setVelocity(Vector velocity) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override

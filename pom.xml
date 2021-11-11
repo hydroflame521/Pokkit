@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.rutgerkok</groupId>
 	<artifactId>Pokkit</artifactId>
-	<version>0.9.7</version>
+	<version>0.10.0</version>
 	<name>Pokkit</name>
-	<description>Run Bukkit and Spigot plugins on Nukkit!</description>
+	<description>Run Bukkit and Spigot plugins on Nukkit</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -118,7 +118,7 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>plugin.yml</include>
+					<include>*.yml</include>
 				</includes>
 			</resource>
 		</resources>

@@ -12,9 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import cn.nukkit.level.Position;
-import cn.nukkit.network.protocol.SetSpawnPositionPacket;
-import cn.nukkit.network.protocol.SetTimePacket;
-import cn.nukkit.network.protocol.StopSoundPacket;
+import cn.nukkit.network.protocol.*;
 import nl.rutgerkok.pokkit.item.PokkitItemStack;
 import nl.rutgerkok.pokkit.world.PokkitWorld;
 import org.apache.commons.lang.Validate;
@@ -68,7 +66,6 @@ import cn.nukkit.event.player.PlayerChatEvent;
 import cn.nukkit.level.GlobalBlockPalette;
 import cn.nukkit.level.particle.GenericParticle;
 import cn.nukkit.math.Vector3;
-import cn.nukkit.network.protocol.UpdateBlockPacket;
 import cn.nukkit.utils.TextFormat;
 
 @DelegateDeserialization(PokkitOfflinePlayer.class)
@@ -138,7 +135,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 			@Override
 			public void respawn() {
-				throw Pokkit.unsupported();
+				Pokkit.notImplemented();
 			}
 
 			@Override
@@ -195,17 +192,17 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void abandonConversation(Conversation arg0) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void abandonConversation(Conversation arg0, ConversationAbandonedEvent arg1) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void acceptConversationInput(String arg0) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -292,44 +289,37 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void decrementStatistic(Statistic arg0) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void decrementStatistic(Statistic arg0, EntityType arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void decrementStatistic(Statistic arg0, EntityType arg1, int arg2) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void decrementStatistic(Statistic arg0, int arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void decrementStatistic(Statistic arg0, Material arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void decrementStatistic(Statistic arg0, Material arg1, int arg2) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public boolean eject() {
-		throw Pokkit.unsupported();
-
+		return super.eject();
 	}
 
 	@Override
@@ -486,8 +476,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public double getHealthScale() {
-		throw Pokkit.unsupported();
-
+		return 1;
 	}
 
 	@Override
@@ -714,38 +703,32 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void incrementStatistic(Statistic arg0) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void incrementStatistic(Statistic arg0, EntityType arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void incrementStatistic(Statistic arg0, EntityType arg1, int arg2) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void incrementStatistic(Statistic arg0, int arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void incrementStatistic(Statistic arg0, Material arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void incrementStatistic(Statistic arg0, Material arg1, int arg2) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -840,8 +823,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void loadData() {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -890,14 +872,83 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void playNote(Location arg0, byte arg1, byte arg2) {
-		throw Pokkit.unsupported();
-
+		playNote(arg0, Instrument.getByType(arg1), new Note(arg2));
 	}
 
 	@Override
 	public void playNote(Location arg0, Instrument arg1, Note arg2) {
-		throw Pokkit.unsupported();
-
+		cn.nukkit.level.Sound sound;
+		switch (arg1.getType()) {
+			case 0:
+				sound = cn.nukkit.level.Sound.NOTE_HARP;
+				break;
+			case 1:
+				sound = cn.nukkit.level.Sound.NOTE_BD;
+				break;
+			case 2:
+				sound = cn.nukkit.level.Sound.NOTE_SNARE;
+				break;
+			case 3:
+				sound = cn.nukkit.level.Sound.NOTE_HAT;
+				break;
+			case 4:
+				sound = cn.nukkit.level.Sound.NOTE_BASS;
+				break;
+			case 5:
+				sound = cn.nukkit.level.Sound.NOTE_FLUTE;
+				break;
+			case 6:
+				sound = cn.nukkit.level.Sound.NOTE_BELL;
+				break;
+			case 7:
+				sound = cn.nukkit.level.Sound.NOTE_GUITAR;
+				break;
+			case 8:
+				sound = cn.nukkit.level.Sound.NOTE_CHIME;
+				break;
+			case 9:
+				sound = cn.nukkit.level.Sound.NOTE_XYLOPHONE;
+				break;
+			default:
+				sound = null;
+		}
+		float note;
+		switch (arg2.getId()) {
+			case 0: note = 0.5f; break;
+			case 1: note = 0.529732f; break;
+			case 2: note = 0.561231f; break;
+			case 3: note = 0.594604f; break;
+			case 4: note = 0.629961f; break;
+			case 5: note = 0.667420f; break;
+			case 6: note = 0.707107f; break;
+			case 7: note = 0.749154f; break;
+			case 8: note = 0.793701f; break;
+			case 9: note = 0.840896f; break;
+			case 10: note = 0.890899f; break;
+			case 11: note = 0.943874f; break;
+			case 12: note = 1.0f; break;
+			case 13: note = 1.059463f; break;
+			case 14: note = 1.122462f; break;
+			case 15: note = 1.189207f; break;
+			case 16: note = 1.259921f; break;
+			case 17: note = 1.334840f; break;
+			case 18: note = 1.414214f; break;
+			case 19: note = 1.498307f; break;
+			case 20: note = 1.587401f; break;
+			case 21: note = 1.681793f; break;
+			case 22: note = 1.781797f; break;
+			case 23: note = 1.887749f; break;
+			case 24: note = 2.0f; break;
+			default: note = 0f;
+		}
+		PlaySoundPacket soundPk = new PlaySoundPacket();
+		soundPk.name = sound.getSound();
+		soundPk.volume = 1f;
+		soundPk.pitch = note;
+		soundPk.x = arg0.getBlockX();
+		soundPk.y = arg0.getBlockY();
+		soundPk.z = arg0.getBlockZ();
+		nukkit.dataPacket(soundPk);
 	}
 
 	@Override
@@ -1015,8 +1066,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void sendMap(MapView arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1033,8 +1083,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void sendPluginMessage(Plugin arg0, String arg1, byte[] arg2) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1044,8 +1093,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void sendSignChange(Location arg0, String[] arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1137,8 +1185,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setExhaustion(float arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1166,8 +1213,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setFlySpeed(float arg0) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1182,14 +1228,12 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setHealthScale(double arg0) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setHealthScaled(boolean arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1234,8 +1278,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setPlayerListName(String arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1247,19 +1290,17 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setPlayerWeather(WeatherType arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setResourcePack(String url) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setResourcePack(String url, byte[] hash) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1275,8 +1316,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setSleepingIgnored(boolean arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1286,8 +1326,7 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setSpectatorTarget(Entity arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1297,26 +1336,22 @@ public class PokkitPlayer extends PokkitHumanEntity implements Player {
 
 	@Override
 	public void setStatistic(Statistic arg0, EntityType arg1, int arg2) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setStatistic(Statistic arg0, int arg1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setStatistic(Statistic arg0, Material arg1, int arg2) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setTexturePack(String arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override

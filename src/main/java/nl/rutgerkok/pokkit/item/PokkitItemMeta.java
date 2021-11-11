@@ -367,7 +367,7 @@ public class PokkitItemMeta extends ItemMeta.Spigot implements ItemMeta, Damagea
 
 	@Override
 	public void setLocalizedName(String name) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -410,7 +410,7 @@ public class PokkitItemMeta extends ItemMeta.Spigot implements ItemMeta, Damagea
 
 	@Override
 	public void setUnbreakable(boolean unbreakable) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -421,7 +421,7 @@ public class PokkitItemMeta extends ItemMeta.Spigot implements ItemMeta, Damagea
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void setAttributeModifiers(Multimap modifiers) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

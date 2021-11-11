@@ -85,22 +85,22 @@ public class PokkitBossBar implements BossBar {
 
 	@Override
 	public BarStyle getStyle() {
-		throw Pokkit.unsupported();
+		return BarStyle.SOLID;
 	}
 
 	@Override
 	public void setStyle(BarStyle style) {
-		throw Pokkit.unsupported();		
+		Pokkit.notImplemented();
 	}
 
 	@Override
-	public void removeFlag(BarFlag flag) {		
-		throw Pokkit.unsupported();
+	public void removeFlag(BarFlag flag) {
+		Pokkit.notImplemented();
 	}
 
 	@Override
-	public void addFlag(BarFlag flag) {	
-		throw Pokkit.unsupported();
+	public void addFlag(BarFlag flag) {
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -119,7 +119,7 @@ public class PokkitBossBar implements BossBar {
 
 	@Override
 	public double getProgress() {
-		return (double) progressLength;
+		return progressLength;
 	}
 
 	@Override
@@ -168,7 +168,7 @@ public class PokkitBossBar implements BossBar {
 
 	@Override
 	public void setVisible(boolean visible) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -192,6 +192,4 @@ public class PokkitBossBar implements BossBar {
 			dummyBossBars.get(i).destroy();
 		}
 	}
-
-
 }

@@ -4,6 +4,7 @@ import cn.nukkit.Server;
 import cn.nukkit.level.generator.Flat;
 import cn.nukkit.level.generator.object.tree.ObjectTree;
 import cn.nukkit.math.NukkitRandom;
+import cn.nukkit.math.SimpleAxisAlignedBB;
 import org.bukkit.*;
 
 import java.io.File;
@@ -74,7 +75,7 @@ public final class PokkitWorld implements World {
 	 * World cache. If Nukkit ever adds world unload support, we'll need to
 	 * remove the corresponding PokkitWorld instance from here too.
 	 */
-	private static HashMap<Level, PokkitWorld> pokkitWorldCache = new HashMap<Level, PokkitWorld>();
+	private static final HashMap<Level, PokkitWorld> pokkitWorldCache = new HashMap<>();
 
 	public static PokkitWorld toBukkit(Level level) {
 		if (level == null) {
@@ -98,10 +99,22 @@ public final class PokkitWorld implements World {
 		return ((PokkitWorld) world).nukkit;
 	}
 
+	private final World.Spigot spigot;
 	private final Level nukkit;
 
 	private PokkitWorld(Level nukkit) {
 		this.nukkit = Objects.requireNonNull(nukkit);
+		this.spigot = new World.Spigot() {
+			@Override
+			public LightningStrike strikeLightning(Location loc, boolean isSilent) {
+				return strike(loc, false);
+			}
+
+			@Override
+			public LightningStrike strikeLightningEffect(Location loc, boolean isSilent) {
+				return strike(loc, true);
+			}
+		};
 	}
 
 	@Override
@@ -424,9 +437,7 @@ public final class PokkitWorld implements World {
 			}
 		}
 
-		Chunk[] array = loadedChunks.toArray(new Chunk[loadedChunks.size()]);
-
-		return array;
+		return loadedChunks.toArray(new Chunk[loadedChunks.size()]);
 	}
 
 	@Override
@@ -461,12 +472,19 @@ public final class PokkitWorld implements World {
 
 	@Override
 	public Collection<Entity> getNearbyEntities(BoundingBox boundingBox) {
-		throw Pokkit.unsupported();
+		return getNearbyEntities(boundingBox, null);
 	}
 
 	@Override
-	public Collection<Entity> getNearbyEntities(BoundingBox boundingBox, Predicate<Entity> predicate) {
-		throw Pokkit.unsupported();
+	public Collection<Entity> getNearbyEntities(BoundingBox boundingBox, Predicate<Entity> filter) {
+		if (filter == null) {
+			cn.nukkit.entity.Entity[] entities = nukkit.getNearbyEntities(new SimpleAxisAlignedBB(boundingBox.getMinX(), boundingBox.getMinY(), boundingBox.getMinZ(), boundingBox.getMaxX(), boundingBox.getMaxY(), boundingBox.getMaxZ()));
+			Collection<Entity> out = new ArrayList<>();
+			for (cn.nukkit.entity.Entity entity : entities) {
+				out.add(PokkitEntity.toBukkit(entity));
+			}
+			return out;
+		} else throw Pokkit.unsupported();
 	}
 
 	@Override
@@ -755,8 +773,7 @@ public final class PokkitWorld implements World {
 
 	@Override
 	public void sendPluginMessage(Plugin source, String channel, byte[] message) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -824,7 +841,7 @@ public final class PokkitWorld implements World {
 
 	@Override
 	public void setKeepSpawnInMemory(boolean keepLoaded) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -1083,8 +1100,7 @@ public final class PokkitWorld implements World {
 
 	@Override
 	public Spigot spigot() {
-		throw Pokkit.unsupported();
-
+		return spigot;
 	}
 
 	public LightningStrike strike(Location loc, boolean effect) {

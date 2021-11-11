@@ -14,8 +14,8 @@ import cn.nukkit.block.BlockID;
 @SuppressWarnings("deprecation")
 public final class BlockMap {
 
-	private static Material[] nukkitToBukkit = new Material[500];
-	private static char[] bukkitToNukkit = new char[Material.values().length];
+	private static final Material[] nukkitToBukkit = new Material[512];
+	private static final char[] bukkitToNukkit = new char[Material.values().length];
 
 	static {
 		registerTwoWay(BlockID.AIR, Material.AIR);

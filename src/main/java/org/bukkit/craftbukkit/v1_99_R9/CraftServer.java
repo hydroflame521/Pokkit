@@ -385,6 +385,8 @@ public final class CraftServer extends Server.Spigot implements Server {
 
 	@Override
 	public Entity getEntity(UUID uuid) {
+		Player pl = getPlayer(uuid);
+		if (pl != null) return pl;
 		throw Pokkit.unsupported();
 	}
 
@@ -575,8 +577,7 @@ public final class CraftServer extends Server.Spigot implements Server {
 
 	@Override
 	public CachedServerIcon getServerIcon() {
-		throw Pokkit.unsupported();
-
+		return null;
 	}
 
 	@Override
@@ -764,13 +765,12 @@ public final class CraftServer extends Server.Spigot implements Server {
 
 	@Override
 	public void resetRecipes() {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void restart() {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -780,8 +780,7 @@ public final class CraftServer extends Server.Spigot implements Server {
 
 	@Override
 	public void sendPluginMessage(Plugin arg0, String arg1, byte[] arg2) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -794,8 +793,7 @@ public final class CraftServer extends Server.Spigot implements Server {
 
 	@Override
 	public void setIdleTimeout(int arg0) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override

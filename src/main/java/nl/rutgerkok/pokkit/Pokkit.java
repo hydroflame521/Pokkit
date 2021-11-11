@@ -1,8 +1,10 @@
 package nl.rutgerkok.pokkit;
 
+import cn.nukkit.Server;
 import cn.nukkit.plugin.PluginBase;
 import com.google.common.collect.ImmutableList;
 import nl.rutgerkok.pokkit.pluginservice.*;
+import nl.rutgerkok.pokkit.startup.NukkitHook;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_99_R9.CraftServer;
 
@@ -65,8 +67,16 @@ public final class Pokkit {
 	 * @throws UnsupportedOperationException
 	 *             Always.
 	 */
-	public static final RuntimeException unsupported() {
+	public static RuntimeException unsupported() {
 		throw new UnsupportedOperationException("This method is not supported yet by " + NAME + " " + VERSION);
+	}
+
+	public static void notImplemented() {
+		if (NukkitHook.debugSilentlyUnsupported) {
+			Server.getInstance().getLogger().debug("[Pokkit] Silently ignored unimplemented method", Pokkit.unsupported());
+		} else {
+			throw Pokkit.unsupported();
+		}
 	}
 
 	private final List<PokkitService> services = ImmutableList.of(new MainScoreboardService(), new PermissionsYml(),

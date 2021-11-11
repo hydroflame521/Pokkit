@@ -101,7 +101,7 @@ public class PokkitLivingEntity extends PokkitEntity implements LivingEntity {
 
 	@Override
 	public boolean getCanPickupItems() {
-		throw Pokkit.unsupported();
+		return nukkit instanceof cn.nukkit.Player; // Currently on Nukkit only players can pick up items
 	}
 
 	@Override
@@ -166,7 +166,7 @@ public class PokkitLivingEntity extends PokkitEntity implements LivingEntity {
 
 	@Override
 	public Entity getLeashHolder() throws IllegalStateException {
-		throw Pokkit.unsupported();
+		throw new IllegalStateException("Not leashed"); // Spigot javadoc
 	}
 
 	@Override
@@ -287,8 +287,7 @@ public class PokkitLivingEntity extends PokkitEntity implements LivingEntity {
 
 	@Override
 	public void resetMaxHealth() {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -298,8 +297,7 @@ public class PokkitLivingEntity extends PokkitEntity implements LivingEntity {
 
 	@Override
 	public void setCanPickupItems(boolean pickup) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -334,13 +332,12 @@ public class PokkitLivingEntity extends PokkitEntity implements LivingEntity {
 
 	@Override
 	public void setMaximumAir(int ticks) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setMaximumNoDamageTicks(int ticks) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -355,7 +352,7 @@ public class PokkitLivingEntity extends PokkitEntity implements LivingEntity {
 
 	@Override
 	public void setRemoveWhenFarAway(boolean remove) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

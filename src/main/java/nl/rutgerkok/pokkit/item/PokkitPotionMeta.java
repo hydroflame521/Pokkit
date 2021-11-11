@@ -84,7 +84,7 @@ final class PokkitPotionMeta extends PokkitItemMeta implements PotionMeta {
 
 	@Override
 	public void setColor(Color arg0) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

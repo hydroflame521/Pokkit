@@ -241,8 +241,7 @@ public final class PokkitPluginManager implements PluginManager {
 
 	@Override
 	public void registerInterface(Class<? extends PluginLoader> loader) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override

@@ -68,7 +68,7 @@ public class PokkitItemFrameEntity extends PokkitFakeEntity implements ItemFrame
 
 	@Override
 	public void setRotation(float v, float v1) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class PokkitItemFrameEntity extends PokkitFakeEntity implements ItemFrame
 
 	@Override
 	public void setFacingDirection(BlockFace face) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class PokkitItemFrameEntity extends PokkitFakeEntity implements ItemFrame
 
 	@Override
 	public void setRotation(Rotation rotation) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 }

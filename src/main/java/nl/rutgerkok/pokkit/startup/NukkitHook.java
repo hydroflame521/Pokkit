@@ -11,6 +11,11 @@ public final class NukkitHook extends PluginBase {
 	 */
 	private Object pokkit;
 
+	/**
+	 * Silently ignore unsupported methods when possible
+	 */
+	public static boolean debugSilentlyUnsupported;
+
 	@Override
 	public void onDisable() {
 		try {
@@ -22,6 +27,9 @@ public final class NukkitHook extends PluginBase {
 
 	@Override
 	public void onEnable() {
+		saveDefaultConfig();
+		debugSilentlyUnsupported = getConfig().getBoolean("debugSilentlyUnsupported");
+
 		try {
 			pokkit.getClass().getMethod("onEnable", PluginBase.class).invoke(pokkit, this);
 		} catch (Throwable t) {

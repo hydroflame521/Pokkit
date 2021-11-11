@@ -95,7 +95,7 @@ public final class PokkitScheduler implements BukkitScheduler {
 
 	@Override
 	public void runTask(Plugin plugin, Consumer<BukkitTask> consumer) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -112,7 +112,7 @@ public final class PokkitScheduler implements BukkitScheduler {
 
 	@Override
 	public void runTaskAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public final class PokkitScheduler implements BukkitScheduler {
 
 	@Override
 	public void runTaskLater(Plugin plugin, Consumer<BukkitTask> consumer, long l) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -150,7 +150,7 @@ public final class PokkitScheduler implements BukkitScheduler {
 
 	@Override
 	public void runTaskLaterAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer, long l) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -171,7 +171,7 @@ public final class PokkitScheduler implements BukkitScheduler {
 
 	@Override
 	public void runTaskTimer(Plugin plugin, Consumer<BukkitTask> consumer, long l, long l1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -192,7 +192,7 @@ public final class PokkitScheduler implements BukkitScheduler {
 
 	@Override
 	public void runTaskTimerAsynchronously(Plugin plugin, Consumer<BukkitTask> consumer, long l, long l1) throws IllegalArgumentException {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

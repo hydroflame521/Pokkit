@@ -1,0 +1,4 @@
+# Silently ignore unsupported methods instead of throwing an error when possible.
+# This may cause unexpected behavior with plugins. Use only for debugging.
+# Enable debug logging to monitor the usage of unsupported methods.
+debugSilentlyUnsupported: false

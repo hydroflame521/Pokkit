@@ -108,8 +108,7 @@ public final class PokkitPlayerInventory extends PokkitLiveInventory implements 
 
 	@Override
 	public void setExtraContents(ItemStack[] items) {
-		throw Pokkit.unsupported();
-
+		Pokkit.notImplemented();
 	}
 
 	@Override

@@ -117,12 +117,12 @@ public class PokkitHumanEntity extends PokkitLivingEntity implements HumanEntity
 
 	@Override
 	public void setBedSpawnLocation(Location location) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setBedSpawnLocation(Location location, boolean b) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class PokkitHumanEntity extends PokkitLivingEntity implements HumanEntity
 
 	@Override
 	public void wakeup(boolean b) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -172,7 +172,7 @@ public class PokkitHumanEntity extends PokkitLivingEntity implements HumanEntity
 
 	@Override
 	public void openInventory(InventoryView inventory) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -192,12 +192,12 @@ public class PokkitHumanEntity extends PokkitLivingEntity implements HumanEntity
 
 	@Override
 	public void setCooldown(Material material, int cooldown) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setGameMode(GameMode mode) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
@@ -214,12 +214,12 @@ public class PokkitHumanEntity extends PokkitLivingEntity implements HumanEntity
 
 	@Override
 	public void setShoulderEntityLeft(Entity entity) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void setShoulderEntityRight(Entity entity) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

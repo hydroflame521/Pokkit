@@ -90,13 +90,11 @@ public final class PokkitBlock implements Block {
 	@Override
 	public int getBlockPower() {
 		throw Pokkit.unsupported();
-
 	}
 
 	@Override
 	public int getBlockPower(BlockFace face) {
-		throw Pokkit.unsupported();
-
+		return nukkit.getStrongPower(PokkitBlockFace.toNukkit(face));
 	}
 
 	@Override

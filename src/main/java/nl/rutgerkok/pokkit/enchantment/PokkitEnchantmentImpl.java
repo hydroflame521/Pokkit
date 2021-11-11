@@ -7,7 +7,6 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
 import org.bukkit.inventory.ItemStack;
 
-import nl.rutgerkok.pokkit.Pokkit;
 import nl.rutgerkok.pokkit.item.PokkitItemStack;
 
 final class PokkitEnchantmentImpl extends Enchantment {
@@ -53,12 +52,11 @@ final class PokkitEnchantmentImpl extends Enchantment {
 
 	@Override
 	public boolean isCursed() {
-		throw Pokkit.unsupported();
+		return nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_BINDING_CURSE || nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_VANISHING_CURSE;
 	}
 
 	@Override
 	public boolean isTreasure() {
-		throw Pokkit.unsupported();
+		return nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_FROST_WALKER || nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_MENDING || nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_SOUL_SPEED || nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_BINDING_CURSE || nukkit.id == cn.nukkit.item.enchantment.Enchantment.ID_VANISHING_CURSE;
 	}
-
 }

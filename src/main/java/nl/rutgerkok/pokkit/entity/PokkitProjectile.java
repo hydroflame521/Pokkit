@@ -1,6 +1,7 @@
 package nl.rutgerkok.pokkit.entity;
 
 import nl.rutgerkok.pokkit.Pokkit;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Projectile;
 import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.BoundingBox;
@@ -37,7 +38,11 @@ public class PokkitProjectile extends PokkitEntity implements Projectile {
      * @param source the {@link ProjectileSource} that shot this projectile
      */
     public void setShooter(ProjectileSource source) {
-        throw Pokkit.unsupported();
+        if (source instanceof Entity) {
+            this.nukkit.shootingEntity = PokkitEntity.toNukkit((Entity) source);
+            return;
+        }
+        Pokkit.notImplemented();
     }
 
     /**
@@ -48,17 +53,17 @@ public class PokkitProjectile extends PokkitEntity implements Projectile {
      * @return true if it should bounce.
      */
     public boolean doesBounce() {
-        throw Pokkit.unsupported();
+        return false; // not implemented
     }
 
     /**
-     * Set whether or not this projectile should bounce or not when it hits
+     * Set whether this projectile should bounce or not when it hits
      * something.
      *
      * @param doesBounce whether or not it should bounce.
      */
     public void setBounce(boolean doesBounce) {
-        throw Pokkit.unsupported();
+        Pokkit.notImplemented();
     }
 
     @Override

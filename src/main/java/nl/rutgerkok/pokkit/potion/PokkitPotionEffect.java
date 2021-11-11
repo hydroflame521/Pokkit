@@ -17,5 +17,4 @@ public class PokkitPotionEffect {
 		nukkitEffect.setVisible(bukkitEffect.hasParticles());
 		return nukkitEffect;
 	}
-
 }

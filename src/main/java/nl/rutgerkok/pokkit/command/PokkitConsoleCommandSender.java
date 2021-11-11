@@ -18,17 +18,17 @@ final class PokkitConsoleCommandSender extends PokkitCommandSender implements Co
 
 	@Override
 	public void abandonConversation(Conversation conversation) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void abandonConversation(Conversation conversation, ConversationAbandonedEvent details) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override
 	public void acceptConversationInput(String input) {
-		throw Pokkit.unsupported();
+		Pokkit.notImplemented();
 	}
 
 	@Override

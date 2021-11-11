@@ -103,7 +103,14 @@ public class PokkitEntity implements Entity {
 
     @Override
     public boolean eject() {
-        throw Pokkit.unsupported();
+        boolean hadPassengers = false;
+        ArrayList<cn.nukkit.entity.Entity> passengers = new ArrayList<>(nukkit.passengers);
+        for (cn.nukkit.entity.Entity entity : passengers) {
+            if (nukkit.dismountEntity(entity)) {
+                hadPassengers = true;
+            }
+        }
+        return hadPassengers;
     }
 
     @Override
@@ -463,7 +470,7 @@ public class PokkitEntity implements Entity {
 
     @Override
     public boolean isDead() {
-        return nukkit.getHealth() <= 0 || !nukkit.isAlive();
+        return !nukkit.isAlive();
     }
 
     @Override
@@ -478,7 +485,7 @@ public class PokkitEntity implements Entity {
 
     @Override
     public boolean isInsideVehicle() {
-        return false; // No vehicle support yet
+        return nukkit.riding instanceof EntityVehicle;
     }
 
     @Override
@@ -508,7 +515,7 @@ public class PokkitEntity implements Entity {
 
     @Override
 	public boolean isPersistent() {
-		return false;
+		return true; // By default all entities are persistent
 	}
 
     @Override
@@ -523,7 +530,10 @@ public class PokkitEntity implements Entity {
 
     @Override
     public boolean leaveVehicle() {
-        throw Pokkit.unsupported();
+        if (nukkit.riding != null) {
+            return nukkit.riding.dismountEntity(nukkit);
+        }
+        return false;
     }
 
     @Override
@@ -549,19 +559,17 @@ public class PokkitEntity implements Entity {
 
     @Override
     public void removeAttachment(PermissionAttachment attachment) {
-        throw Pokkit.unsupported();
-
+        Pokkit.notImplemented();
     }
 
     @Override
     public void removeMetadata(String metadataKey, Plugin owningPlugin) {
-        throw Pokkit.unsupported();
-
+        Pokkit.notImplemented();
     }
 
     @Override
 	public boolean removePassenger(Entity passenger) {
-		throw Pokkit.unsupported();
+        return nukkit.dismountEntity(toNukkit(passenger));
 	}
 
     @Override
@@ -621,7 +629,7 @@ public class PokkitEntity implements Entity {
 
     @Override
     public void setMetadata(String metadataKey, MetadataValue newMetadataValue) {
-        throw Pokkit.unsupported();
+        Pokkit.notImplemented();
     }
 
     @Override
@@ -631,16 +639,17 @@ public class PokkitEntity implements Entity {
 
     @Override
     public boolean setPassenger(Entity passenger) {
-        throw Pokkit.unsupported();
+        return nukkit.mountEntity(toNukkit(passenger));
     }
 
     @Override
 	public void setPersistent(boolean persistent) {
-		throw Pokkit.unsupported();
+        Pokkit.notImplemented();
 	}
 
     @Override
     public void setPortalCooldown(int cooldown) {
+        //silently unsupported
     }
 
 	@Override
