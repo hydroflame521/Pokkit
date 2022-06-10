@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import cn.nukkit.entity.item.*;
 import cn.nukkit.entity.mob.*;
@@ -192,7 +193,7 @@ public class PokkitEntity implements Entity {
 
     @Override
 	public List<Entity> getPassengers() {
-		throw Pokkit.unsupported();
+        return nukkit.passengers.stream().map(PokkitEntity::toBukkit).collect(Collectors.toList());
 	}
 
     @Override

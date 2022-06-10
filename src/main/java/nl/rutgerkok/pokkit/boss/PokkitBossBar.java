@@ -172,7 +172,7 @@ public class PokkitBossBar implements BossBar {
 
 	@Override
 	public boolean isVisible() {
-		throw Pokkit.unsupported();
+		return true;//throw Pokkit.unsupported();
 	}
 
 	@Override

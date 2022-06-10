@@ -462,12 +462,19 @@ public final class PokkitWorld implements World {
 
 	@Override
 	public Collection<Entity> getNearbyEntities(Location location, double x, double y, double z) {
-		throw Pokkit.unsupported();
+		return getNearbyEntities(location, x, y, z, null);
 	}
 
 	@Override
-	public Collection<Entity> getNearbyEntities(Location location, double v, double v1, double v2, Predicate<Entity> predicate) {
-		throw Pokkit.unsupported();
+	public Collection<Entity> getNearbyEntities(Location location, double x, double y, double z, Predicate<Entity> predicate) {
+		if (predicate == null) {
+			cn.nukkit.entity.Entity[] entities = nukkit.getNearbyEntities(new SimpleAxisAlignedBB(location.getX()-0.5*x, location.getY()-0.5*y, location.getZ()-0.5*z, location.getX()+0.5*x, location.getY()+0.5*y, location.getZ()+0.5*z));
+			Collection<Entity> out = new ArrayList<>();
+			for (cn.nukkit.entity.Entity entity : entities) {
+				out.add(PokkitEntity.toBukkit(entity));
+			}
+			return out;
+		} else throw Pokkit.unsupported();
 	}
 
 	@Override
