@@ -3,7 +3,6 @@ package nl.rutgerkok.pokkit.blockdata;
 import static org.junit.Assert.assertEquals;
 
 import org.bukkit.Material;
-import org.bukkit.Tag;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

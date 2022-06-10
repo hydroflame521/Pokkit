@@ -9,7 +9,6 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 
-import cn.nukkit.utils.BlockColor;
 import cn.nukkit.utils.BossBarColor;
 import cn.nukkit.utils.DummyBossBar;
 import nl.rutgerkok.pokkit.Pokkit;

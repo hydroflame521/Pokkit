@@ -10,7 +10,7 @@ import org.bukkit.enchantments.Enchantment;
 
 public class PokkitEnchantment {
 
-	private static final Enchantment[] nukkitToBukkit = new Enchantment[37];
+	private static final Enchantment[] nukkitToBukkit = new Enchantment[38];
 	private static final Map<NamespacedKey, Integer> bukkitToNukkit = new HashMap<>();
 
 	static {
@@ -49,10 +49,11 @@ public class PokkitEnchantment {
 		twoWay(cn.nukkit.item.enchantment.Enchantment.ID_TRIDENT_CHANNELING, Enchantment.CHANNELING);
 
 		//Not in Bukkit 1.13.2
-		twoWay(cn.nukkit.item.enchantment.Enchantment.ID_CROSSBOW_MULTISHOT, Enchantment.CHANNELING);
-		twoWay(cn.nukkit.item.enchantment.Enchantment.ID_CROSSBOW_PIERCING, Enchantment.CHANNELING);
-		twoWay(cn.nukkit.item.enchantment.Enchantment.ID_CROSSBOW_QUICK_CHARGE, Enchantment.CHANNELING);
-		twoWay(cn.nukkit.item.enchantment.Enchantment.ID_SOUL_SPEED, Enchantment.CHANNELING);
+		nukkitToBukkit[cn.nukkit.item.enchantment.Enchantment.ID_CROSSBOW_MULTISHOT] = Enchantment.CHANNELING;
+		nukkitToBukkit[cn.nukkit.item.enchantment.Enchantment.ID_CROSSBOW_PIERCING] = Enchantment.CHANNELING;
+		nukkitToBukkit[cn.nukkit.item.enchantment.Enchantment.ID_CROSSBOW_QUICK_CHARGE] = Enchantment.CHANNELING;
+		nukkitToBukkit[cn.nukkit.item.enchantment.Enchantment.ID_SOUL_SPEED] = Enchantment.CHANNELING;
+		nukkitToBukkit[cn.nukkit.item.enchantment.Enchantment.ID_SWIFT_SNEAK] = Enchantment.CHANNELING;
 	}
 
 	/**
@@ -114,13 +115,13 @@ public class PokkitEnchantment {
 	}
 
 	private static void twoWay(int nukkit, Enchantment bukkit) {
-		NamespacedKey bukkitId = bukkit.getKey();
-
 		nukkitToBukkit[nukkit] = bukkit;
 
-		if (!bukkitToNukkit.containsKey(bukkitId)) { //Ignore unsupported enchantments that are mapped to other values
-			bukkitToNukkit.put(bukkitId, nukkit);
+		NamespacedKey bukkitId = bukkit.getKey();
+		if (bukkitToNukkit.containsKey(bukkitId)) {
+			throw new RuntimeException("bukkitToNukkit already mapped");
 		}
-	}
 
+		bukkitToNukkit.put(bukkitId, nukkit);
+	}
 }
