@@ -4,7 +4,7 @@ import cn.nukkit.Server;
 import cn.nukkit.level.generator.Flat;
 import cn.nukkit.level.generator.object.tree.ObjectTree;
 import cn.nukkit.math.NukkitRandom;
-import cn.nukkit.math.SimpleAxisAlignedBB;
+import cn.nukkit.math.AxisAlignedBB;
 import org.bukkit.*;
 
 import java.io.File;
@@ -468,7 +468,7 @@ public final class PokkitWorld implements World {
 	@Override
 	public Collection<Entity> getNearbyEntities(Location location, double x, double y, double z, Predicate<Entity> predicate) {
 		if (predicate == null) {
-			cn.nukkit.entity.Entity[] entities = nukkit.getNearbyEntities(new SimpleAxisAlignedBB(location.getX()-0.5*x, location.getY()-0.5*y, location.getZ()-0.5*z, location.getX()+0.5*x, location.getY()+0.5*y, location.getZ()+0.5*z));
+			cn.nukkit.entity.Entity[] entities = nukkit.getNearbyEntities(new AxisAlignedBB(location.getX()-0.5*x, location.getY()-0.5*y, location.getZ()-0.5*z, location.getX()+0.5*x, location.getY()+0.5*y, location.getZ()+0.5*z));
 			Collection<Entity> out = new ArrayList<>();
 			for (cn.nukkit.entity.Entity entity : entities) {
 				out.add(PokkitEntity.toBukkit(entity));
@@ -485,7 +485,7 @@ public final class PokkitWorld implements World {
 	@Override
 	public Collection<Entity> getNearbyEntities(BoundingBox boundingBox, Predicate<Entity> filter) {
 		if (filter == null) {
-			cn.nukkit.entity.Entity[] entities = nukkit.getNearbyEntities(new SimpleAxisAlignedBB(boundingBox.getMinX(), boundingBox.getMinY(), boundingBox.getMinZ(), boundingBox.getMaxX(), boundingBox.getMaxY(), boundingBox.getMaxZ()));
+			cn.nukkit.entity.Entity[] entities = nukkit.getNearbyEntities(new AxisAlignedBB(boundingBox.getMinX(), boundingBox.getMinY(), boundingBox.getMinZ(), boundingBox.getMaxX(), boundingBox.getMaxY(), boundingBox.getMaxZ()));
 			Collection<Entity> out = new ArrayList<>();
 			for (cn.nukkit.entity.Entity entity : entities) {
 				out.add(PokkitEntity.toBukkit(entity));
